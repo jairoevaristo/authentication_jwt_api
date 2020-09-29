@@ -11,7 +11,9 @@ class UserController {
 
             const userActive = await User.findById(req.userId);
 
-            return res.status(200).send({  userActive: userActive.email, data: user });
+            const { email } = userActive;
+
+            return res.status(200).send({ userActive: email, data: user });
 
         } catch(err) {
             return res.status(400).send('Not List')
